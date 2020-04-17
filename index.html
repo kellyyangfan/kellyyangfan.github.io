@@ -9,7 +9,7 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/html_Funny.json", {onProgress: UnityProgress});
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/TestRun.json", {onProgress: UnityProgress});
     </script>
   </head>
   <body>
@@ -20,18 +20,6 @@
         <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
         <div class="title">Construction Safety Game - Demo</div>
       </div>
-    </div>
-
-    <div>
-      <form action="log-data.php" method="POST">
-        <div>
-          <label for="say">What greeting do you want to say?</label>
-          <input type="text" name="say" id="say" value="Hi">
-        </div>
-        <div>
-          <button>Send</button>
-        </div>
-      </form>
     </div>
   </body>
 </html>
