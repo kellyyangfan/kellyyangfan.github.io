@@ -9,7 +9,7 @@
     $text7 = $_POST["Ans3"];
     $text8 = $_POST["Ans4"];
     $text9 = $_POST["Ans5"];
-    $text10 = $POST["Point"];
+    $text10 = $_POST["Point"];
     
     if($text1 != ""){
         echo("Message sent successfully! ");
@@ -30,6 +30,24 @@
         fwrite($file, "Ans4: " . $text8 . " / ");
         fwrite($file, "Ans5: " . $text9 . " / ");
         fwrite($file, "Point: " . $text10 . " \n ");
+        
+        $csvfp = fopen("FunnyData.csv", "a");
+        $data = array(
+            'Email' => $text1,
+            'Time' => $text2,
+            'Attempt' => $text3,
+            'Attempt Records' => $text4,
+            'Ans1' => $text5,
+            'Ans2' => $text6,
+            'Ans3' => $text7,
+            'Ans4' => $text8,
+            'Ans5' => $text9,
+            'Point' => $text10
+        );
+        //fputcsv($csvfp, array($text1, $text2, $text3, $text4, $text5, $text6, $text7, $text8, $text9, $text10));
+        fputcsv($csvfp, "\n");
+        fputcsv($csvfp, $data);
+        fclose($csvfp);
         
     }else{
         echo("Message sending failed...");
